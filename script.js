@@ -217,7 +217,7 @@ switch(a){  // a === 1
 //     document.write("Это номер: " + i + "<br>");
 //     i++;
 // } while (i < 5)
-    
+
 // let i = 1;
 // do{ 
 //     document.write("Квадрат: " + i + " равен: " + i ** 2 + "<br>");
@@ -328,12 +328,11 @@ switch(a){  // a === 1
 // arr.forEach(x => {if (x < 0) {sumNegative += x;}});
 // document.write(sumNegative);
 
-
-let arr1 = new Array(5);
-for(let i = 0; i < arr1.length; i++){
-    arr1[i] = +prompt("Введите " + (i+1) + " элемент массива");
-}
-console.log(arr1.reverse());
+// let arr1 = new Array(5);
+// for(let i = 0; i < arr1.length; i++){
+//     arr1[i] = +prompt("Введите " + (i + 1) + " элемент массива");
+// }
+// console.log(arr1.reverse());
 
 // МАССИВЫ 01.07 *************************************************************
 // let arr = [2, 5, 7, "Игорь", 1.5, true];
@@ -473,7 +472,7 @@ document.write("</table>"); */
 // js.splice(1, 1);    // удаляет элементы (начиная с какого индекса, сколько элементов удалить)
 // console.log(js);
 
-// js.splice(1, 0, "сложный", "язык");
+// js.splice(1, 0, "сложный", "язык"); // также вставляет элементы
 // console.log(js);
 
 // js.splice(-2, 0, "но", "очень", "интересный");
@@ -486,26 +485,54 @@ document.write("</table>"); */
 
 // Function Declaration
 
-// function test(a,b,c){
-//     alert(a + b + c);
+// function test(a, b, c){ // 3 - это значение по умолчанию. Если нет аргумента для параметра "c", то подставится тройка
+//     return a + b + c;
 // }
 
-// test(10,20,30);
-// test(5,2,3);
+// // test(10,20,30); // 60
+// // test(5,2);    // NaN
+// // test(5,2,3,5,7);    // 10. По трём первым аргументам
+
+// let x1 = 10, x2 = 20, x3 = 30;
+// let q = test(x1, x2, x3);    // 10
+// alert(q);
+
+
+/* function showArrayContent(arrayToShow) {
+    // Тут идёт код функции.
+    if(arrayToShow.length == 1){
+        return arrayToShow;
+    } else {
+        let last = arrayToShow.pop();
+        let str = arrayToShow.join(", ");
+        let all = str + ' и ' + last;
+        return all;
+    }
+}
+// Определяем массивы.
+let a = new Array('Текст');
+let b = new Array('день', 'ночь');
+let c = new Array('зима', 'весна', 'лета', 'осень');
+alert(showArrayContent(a)); // Выводим содержимое массивов,
+alert(showArrayContent(b)); // используя созданную выше функцию.
+alert(showArrayContent(c)); */
+
+
+alert(sum1(2, 3));  // вызов function declaration может быть раньше, чем объявлена сама функция
+
+function sum1 (a, b){
+    return a + b;
+}
 
 
 
+// Function expression
 
+let sum2 = function(a, b){
+    return a + b;
+}
 
-
-
-
-
-
-
-
-
-
+alert(sum2(12, 13));    // вызов function expression должен идти только после того, как объявлена переменная, которой присвоена функция
 
 
 
