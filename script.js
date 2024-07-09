@@ -483,7 +483,7 @@ document.write("</table>"); */
 
 
 
-// Function Declaration
+// Function Declaration ****************************************************
 
 // function test(a, b, c){ // 3 - это значение по умолчанию. Если нет аргумента для параметра "c", то подставится тройка
 //     return a + b + c;
@@ -518,42 +518,216 @@ alert(showArrayContent(b)); // используя созданную выше ф
 alert(showArrayContent(c)); */
 
 
-alert(sum1(2, 3));  // вызов function declaration может быть раньше, чем объявлена сама функция
 
+// №1 Function Declaration
+
+/* alert(sum1(2, 3));  // вызов function declaration может быть раньше, чем объявлена сама функция
 function sum1 (a, b){
     return a + b;
 }
+ */
 
 
+// №2 Function expression
 
-// Function expression
-
-let sum2 = function(a, b){
+/* let sum2 = function(a, b){
     return a + b;
 }
-
-alert(sum2(12, 13));    // вызов function expression должен идти только после того, как объявлена переменная, которой присвоена функция
-
+alert(sum2(12, 13));    // вызов function expression должен идти только после того, как объявлена переменная, которой присвоена функция */
 
 
 
+// №3 Самовызывающаяся (анонимная) функция. К функции не можем обратиться, т.к. нет имени. Поэтому сам смысл использования анонимных функций теряется
+
+// (function(){
+//     alert("Привет мир!");
+// }());
+
+// (function(n){
+//     alert("Привет мир!!!!!");
+// })(4)
+
+
+//-----------------------------------------
+// function test(a, b, c) {
+//     let res = a + b + c;
+//     return res;
+// }
+// alert(test(10,20,30));
+
+
+// №4 Arrow function - стрелочные функции
+
+// let test2 = (a, b, c) => a + b + c;
+
+// alert(test2(1,2,3));
+
+// let test3 = (a, b, c) => {
+//     let res = a + b + c;
+//     return res;
+// };
+
+// alert(test3(1,2,3));
+
+// let hello = (n) => alert("Hello, " + n);
+// hello("Igor");
 
 
 
+// Объект Math
+// console.log(Math.floor(7.9));
+// console.log(Math.ceil(7.1));
+// console.log(Math.round(7.4));
+
+// (function(min, max){    // это самовызывающаяся (анонимная) функция
+//     document.write(Math.floor(Math.random() * (max - min) + min) + "<br>");
+// }(2, 9));
+
+// document.write(Math.floor(Math.random() * (9 - 2) + 2) + "<br>");
 
 
+// let mas = function(words){
+//     return words[Math.floor(Math.random() * words.length)];
+// }
+// let arr = ["Цикл", "Массив", "Условие", "Функция"];
+// let char = mas(arr);
+// document.write(char);
 
 
+// let a = 5;
+// if(a > 0){
+//     a++;
+//     document.write(a + "<br>");
+// }
+// document.write("a = " + a);
+
+// let j = 2;
+// function ch(){
+//     j = 3;
+// }
+// ch();
+// alert(j);
 
 
+// document.write("<div id='block'></div>");
+// let id = document.getElementById('block');
+
+// let createColor = () => Math.floor(Math.random() * 256);
+
+// id.style.width = id.style.height = "100px";
+// id.style.backgroundColor="rgb(" + createColor() + ", " + createColor() + ", " + createColor() + ")";
 
 
+// function hello(name="незнакомецъ", age=30) {
+//     // name = name || "незнакомецъ";    // старый способ задать значение по-умолчанию
+//     document.write("Привет, " + name + "! Мне " + age + " лет.<br>");
+// }
+// hello("Сергей", 25);
+// alert(hello());
 
 
+// let str = "I\'m a JavaScript \"programmer\"";
+// document.write(str + "<br>");
+// document.write(str[2] + "<br>");
+// str[2] = "y";    // ошибка
+// str = str[2] + "y"   // нет ошибки
+// document.write(str + "<br>");
+// document.write(str.length + "<br>");
+// document.write(str.toUpperCase() + "<br>");
+// document.write(str.toLowerCase() + "<br>");
+// document.write(str.indexOf("m") + "<br>");
+// document.write(str.lastIndexOf("m") + "<br>");
+// document.write(str.split(" ", 2) + "<br>");  // вернет массив
+// console.log(str.split(" ", 2));  // вернет массив
+// document.write(str.slice(-23, -10) + "<br>");    // работает с отрицательными индексами, но не понимает диапазонов от большего индекса к меньшему
+// document.write(str.substring(3, 0) + "<br>"); // не работает с отрицательными индексами, но понимает диапазоны от больших индексов к меньшим
+
+/* let st = str.split(" ");
+console.log(st);
+let st2 = st.join(" "); // объединяет элементы массива в 1 строку
+console.log(st2);
+console.log(typeof(st2)); */
 
 
+// СОБЫТИЯ *********************************************************************
+// Первый способ обработать событие - Использование атрибута HTML ***********************************************************************************************************************
+// function click1(){
+//     alert("Клик");
+// }
+
+// let m = document.getElementById("mes");
+// function over(){
+//     m.style.color="red";
+// }
+// function out(){
+//     m.style.color="blue";
+// }
+
+// // Как обработчик делать на одном элементе, а взаимодействовать с другим элементом
+// function change(){
+//     let id = document.getElementById("id1");
+//     id.style.color="orange";
+// }
+
+// // цвет страницы меняется при наведении на изображение
+// function randomBg(){
+//     let r = Math.floor(Math.random() * 256);
+//     let g = Math.floor(Math.random() * 256);
+//     let b = Math.floor(Math.random() * 256);
+//     document.body.style.background = "rgb(" + r + ", " + g + ", " + b + ")";
+// }
+
+// // меняет текст
+// function reset(id){
+//     id.innerHTML = "Новый текст";
+// }
+
+// // меняет цвет фона всей страницы на тот цвет, что мы нажали
+// function setColor(element){
+//     document.body.style.background = element.className;
+// }
+
+// // меняет по нажатию ЛКМ день на ночь, а при отпускании ЛКМ возвращает обратно
+// let newImg = document.getElementById("newimg");
+// function on(){
+//     newImg.src="night.png";
+// }
+// function off(){
+//     newImg.src="day.png";
+// }
 
 
+// Второй способ обработать событие, НЕ прописывая само событие в HTML-разметке *******************************************************************************************************
+// document.getElementById("but").onclick = function(){
+//     alert("Спасибо");
+// }
+
+// по ID можно напрямую обратиться к элементу. Но, так лучше не делать, т.к. если уже есть переменные с таким же именем как ID у элемента, то мы обратимся к переменной, а не к элементу с аналогичным ID
+// but.onclick = function(){   
+//     alert("Спасибо");
+// }
+
+// function hello() {
+//     alert("Спасибо");
+// }
+// but.onclick = hello;    // если поставить круглые скобки, то вызов произойдет сразу при загрузке страницы. Т.е. к функции не применится событие. НЕЛЬЗЯ СТАВИТЬ КРУГЛЫЕ СКОБКИ, т.к. мы передаем функцию в качестве обработчика события
+
+
+// Третий способ обработать событие *******************************************************************************************************
+// let el = document.getElementById("but");
+// добавляем обработчик события click к элементу el. При событии click будет вызвана анонимная функция
+// el.addEventListener("click", function(){    
+//     el.innerHTML = "Новый текст";
+// });
+// можем сделать функцию не анонимной. Функцию тоже писать без скобочек, т.к. мы передаем функцию в качестве аргумента
+// function setText(){    
+//     el.innerHTML = "Новый текст";
+// }
+// el.addEventListener("click", setText);
+// el.addEventListener("contextmenu", function(){
+//     el.style.color = "green";
+//     el.style.background = "yellow";
+// });
 
 
 

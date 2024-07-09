@@ -12,27 +12,40 @@
 
 <body>
     <h1>JavaScript</h1>
+    <!-- Первый способ обработать событие - Использование атрибута HTML -->
+    <!-- <p oNcLiCk="alert('Клик')">Не нажимать!</p>  -->
 
-    <!-- <h2>Красные фрукты</h2>
-    <ul class="red">
-        <li>Клубника</li>
-        <li>Малина</li>
-        <li>Вишня</li>
-    </ul>
+    <!-- <p onclick="click1()">Не нажимать!</p> -->
 
-    <h2>Фиолетовые фрукты</h2>
-    <ul class="purple">
-        <li>Ежевика</li>
-        <li>Слива</li>
-        <li>Виноград</li>
-    </ul> -->
+    <!-- <p id="mes" onmouseover="over()" onmouseout="out()">Наведите на этот текст курсор мыши</p> -->
 
-    <!-- <p id="text_1">Текст 1</p>
-    <p id="text_2">Текст 2</p>
-    <p></p>
-    <div class="a">Текст с классом A первый элемент</div>
-    <div class="a">Текст с классом A второй элемент</div>
-    <div class="b">Текст с классом B</div> -->
+    <!-- Как обработчик делать на одном элементе, а взаимодействовать с другим элементом -->
+    <!-- <h2 id="id1">Заголовок страницы</h2>
+    <a href="#" onclick="change()">Изменить цвет</a> -->
+
+    <!-- цвет страницы меняется при наведении на изображение -->
+    <!-- <img src="golden_star.png" onmousemove="randomBg()" alt=""> -->
+
+    <!-- при нажатии меняет "Один" на "One" -->
+    <!-- <p onclick="this.innerHTML = 'One'">Один</p> -->
+
+    <!-- при нажатии текст меняется -->
+    <!-- <p onclick="reset(this)">Один</p>
+    <p onclick="reset(this)">Два</p>
+    <p onclick="reset(this)">Три</p> -->
+
+    <!-- меняет цвет фона всей страницы на тот цвет, что мы нажали -->
+    <!-- <a href="#" class="red" onclick="setColor(this)">Красный</a>
+    <a href="#" class="yellow" onclick="setColor(this)">Желтый</a>
+    <a href="#" class="green" onclick="setColor(this)">Зеленый</a> -->
+
+    <!-- меняет по нажатию ЛКМ день на ночь, а при отпускании ЛКМ возвращает обратно  -->
+    <!-- <img id="newimg" src="day.png" onmousedown="on()" onmouseup="off()"> -->
+
+
+    <!-- Второй способ обработать событие, когда мы не трогаем HTML-разметку -->
+    <!-- <p id="but">Нажми на меня</p> -->
+
     <script src="script.js"></script>
 </body>
 
