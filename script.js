@@ -544,7 +544,7 @@ alert(sum2(12, 13));    // вызов function expression должен идти 
 // }());
 
 // (function(n){
-//     alert("Привет мир!!!!!");
+//     alert("Привет мир!!!!!" + n);
 // })(4)
 
 
@@ -730,5 +730,193 @@ console.log(typeof(st2)); */
 // });
 
 
+
+
+// document.addEventListener('mousemove', function(event){
+//     let c = document.querySelector('#ev');
+//     let x = event.clientX;
+//     let y = event.clientY;
+
+//     c.textContent = "X = " + x + ", Y = " + y;
+
+//     c.addEventListener('dblclick', function(event){
+//         event.target.style.background="red";
+//     });
+// });
+
+
+// let input = document.querySelector("#but");
+// input.addEventListener('click', handler);
+// function handler(){
+//     alert('Спасибо');
+//     input.removeEventListener('click', handler);
+// }
+
+
+// setTimeout("alert('Текст')", 3000); // если в функцию передается параметр, то оборачиваем в кавычки
+
+// setTimeout(hello, 3000, "Привет", "друг");
+// function hello(h, n){
+//     alert(h + ", " + n + "!");
+// };
+
+
+// document.write("<div id='dt'>Создание анимированного текста</div>");
+// let id = document.querySelector('#dt');
+// let text = document.querySelector('#dt').innerHTML;
+// let i = 0;
+// // console.log(id);
+// window.addEventListener('load', animText);
+// function animText(){
+//     id.innerHTML = text.substring(0, i);
+//     i++;
+//     if(i > text.length){
+//         i = 0;
+//     }
+//     setTimeout(animText, 100);
+// }
+
+
+// let d = new Date();
+// document.write(d + "<br>");
+// document.write(d.toDateString() + "<br>");
+// document.write(d.getFullYear() + "<br>");   // 2024
+// document.write(d.getMonth() + "<br>");   // 6, месяцы от 0 до 11
+// document.write(d.getDate() + "<br>");   // 15
+// document.write(d.getDay() + "<br>");   // 1, 0 - воскресенье, 6 - суббота
+
+
+// let arr1 = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+// let arr2 = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+// let t = new Date();
+// document.write("Сегодня: " + t.getDate() + " " + arr1[t.getMonth()] + " " + t.getFullYear() + ", " + arr2[t.getDay()]);
+
+
+// document.write('<input type="button" value="Start / Stop">');
+// let button = document.querySelector("input").addEventListener('click', st);
+// let run, act;
+// function st(){
+//     if(!run){
+//         act = setInterval(setColor, 1000);
+//         // run = true;
+//     } 
+//     else {
+//         clearInterval(act);
+//         // run = false;
+//     }
+//     run = !run;
+// }
+// function setColor(){
+//     let x = document.body;
+//     x.style.background = (x.style.background == 'yellow') ? 'orange' : 'yellow';
+// }
+
+
+// document.write('<div id="text">Здесь будет отображаться текущее время</div>');
+
+// window.addEventListener("load", () => setInterval(time, 1000));
+
+// window.addEventListener("load", st);
+// function st(){
+//     setInterval(time, 1000);
+// }
+
+// function time(){
+//     let d = new Date();
+//     let hour = d.getHours();
+//     let min = d.getMinutes();
+//     let sec = d.getSeconds();
+
+//     if(sec < 10){
+//         sec = "0" + sec;
+//     }
+
+//     let tim = hour + ":" + min + ":" + sec;
+//     document.querySelector('#text').innerHTML = tim;
+// }
+
+// let a = document.querySelector("#cl");
+// a.addEventListener('click', myMove);
+// function myMove(){
+//     // a.style.visibility = 'hidden';
+//     let elem = document.getElementById("animate");
+//     let pos = 0;
+//     let id = setInterval(frame, 5);
+//     function frame(){
+//         if(pos == 150){
+//             // a.style.visibility = 'visible';
+//             a.addEventListener('click', myMove);
+//             clearInterval(id);
+//         }
+//         else{
+//             a.removeEventListener('click', myMove);
+//             pos++;
+//             elem.style.top = pos +'px';
+//             elem.style.left = pos + 'px';
+//         }
+//     }
+// }
+
+
+// let img = document.image;
+// let img = document.getElementsByName("image")[0];
+
+// img.style.border = "1px solid black";
+// img.width = 200;
+// document.write("<p>Ширина изображения: " + img.width + "<br>Высота изображения: " + img.height +  "</p>");
+
+// let check = false;
+// img.addEventListener("click", () => {
+//     img.src = check == false ? "blue_star.png" : "golden_star.png";
+//     check = !check;
+// });
+
+
+// let array = ["2.jpg", "3.jpg", "4.jpg"];
+// document.write('<input type="button" name="left" value="<">');
+// document.write('<img id="sl" src="' + array[0] + '">');
+// document.write('<input type="button" name="right" value=">">');
+// let image = document.getElementById("sl");
+// let i = 0;
+// document.getElementsByName("right")[0].addEventListener("click", rightBtn);
+// document.getElementsByName("left")[0].addEventListener("click", leftBtn);
+// function rightBtn(){
+//     i++;
+//     if(i == array.length){
+//         i = 0;
+//     }
+//     image.src = array[i];
+// }
+// function leftBtn(){
+//     i--;
+//     if(i < 0){
+//         i = array.length - 1;
+//     }
+//     image.src = array[i];
+// }
+
+
+let imgTime = ["c0.gif", "c1.gif", "c2.gif", "c3.gif", "c4.gif", "c5.gif", "c6.gif", "c7.gif", "c8.gif", "c9.gif"];
+let t = document.querySelectorAll("#clock img");
+
+clock();
+
+function clock(){
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    let sec = time.getSeconds();
+    getImg(hour, min, sec);
+    setTimeout(clock, 1000);
+}
+
+function getImg(h, m, s){
+    t[0].src = imgTime[parseInt(h / 10)];       
+    t[1].src = imgTime[h % 10];       
+    t[3].src = imgTime[Math.floor(m / 10)];       
+    t[4].src = imgTime[m % 10];       
+    t[6].src = imgTime[parseInt(s / 10)];       
+    t[7].src = imgTime[s % 10];       
+}
 
 
