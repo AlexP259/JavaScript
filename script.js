@@ -896,27 +896,196 @@ console.log(typeof(st2)); */
 // }
 
 
-let imgTime = ["c0.gif", "c1.gif", "c2.gif", "c3.gif", "c4.gif", "c5.gif", "c6.gif", "c7.gif", "c8.gif", "c9.gif"];
-let t = document.querySelectorAll("#clock img");
+// let imgTime = ["c0.gif", "c1.gif", "c2.gif", "c3.gif", "c4.gif", "c5.gif", "c6.gif", "c7.gif", "c8.gif", "c9.gif"];
+// let t = document.querySelectorAll("#clock img");
+// clock();
+// function clock(){
+//     let time = new Date();
+//     let hour = time.getHours();
+//     let min = time.getMinutes();
+//     let sec = time.getSeconds();
+//     getImg(hour, min, sec);
+//     setTimeout(clock, 1000);
+// }
+// function getImg(h, m, s){
+//     t[0].src = imgTime[parseInt(h / 10)];       
+//     t[1].src = imgTime[h % 10];       
+//     t[3].src = imgTime[Math.floor(m / 10)];       
+//     t[4].src = imgTime[m % 10];       
+//     t[6].src = imgTime[parseInt(s / 10)];       
+//     t[7].src = imgTime[s % 10];       
+// }
 
-clock();
 
-function clock(){
-    let time = new Date();
-    let hour = time.getHours();
-    let min = time.getMinutes();
-    let sec = time.getSeconds();
-    getImg(hour, min, sec);
-    setTimeout(clock, 1000);
+// alert(document.documentElement); // выведет объект-ноду элемента <html> в текущем документе HTML.
+// alert(document.documentElement.innerHTML);   // свойство innerHTML выведет HTML-содержимое элемента <html> в текущем документе. Это будет включать весь HTML-код, который находится внутри элемента <html>, включая все вложенные элементы, атрибуты и текстовые узлы.
+// alert(document.documentElement.innerText);   // выведет текстовое содержимое всех элементов, включая вложенные элементы, внутри корневого элемента <html> в текущем документе. 
+// alert(document.body.innerHTML);
+
+// let title = document.querySelector("h1").innerHTML;
+// console.log(title);
+
+// let title = document.querySelector("h1").firstChild;    // вернет текст из h1 В КАВЫЧКАХ, то есть вернет текстовую ноду, которая является дочерней нодой у h1
+
+// let title = document.querySelector("h1").firstChild.nodeValue;    // вернет текст из дочерней тексовой ноды у h1 БЕЗ КАВЫЧЕК
+
+// let title = document.querySelector("h1").firstChild.nodeName;    // вернет #text
+
+// let title = document.querySelector("h1").nodeName;    // вернет H1
+
+// let title = document.querySelector("h1").firstChild.nodeType;    // вернет тип ноды. Он указан числом, например, TEXT_NODE это 3, а ELEMENT_NODE это 1
+// console.log(title);
+
+
+
+/******************************** Создаем новые элементы относительно других ********************************/  
+
+// let elem = document.querySelector("#root");
+
+// let tag = document.createElement("p");  // нода элемента <p></p>  создалась, но на страницу пока никуда не добавляется
+// let node = document.createTextNode("Новый текст!!!"); // создали текстовую ноду, тоже пока никуда не добавлена
+// tag.append(node);   // тут мы взяли тег <p> и вложили в него текст
+
+
+
+// есть 4 метода, которые могут добавлять элементы ***********************************
+
+// ДОБАВЛЯЮТ ДОЧЕРНИМ ЭЛЕМЕНТОМ:
+// elem.append(tag);   // тег p добавился последним потомком в div с id root
+// elem.prepend(tag);   // тег p добавился первым дочерним элементом внутри div с id root
+// методы append и prepend взаимозаменяемы, поэтому отработает то, где мы тег p вложили первым очерним элементом в элемент с id root
+
+// ДОБАВЛЯЮТ РЯДОМ (ДО ИЛИ ПОСЛЕ)
+// elem.before(tag);   // тег p добавился ДО блока div с id root
+// elem.after(tag);   // тег p добавился ПОСЛЕ блока div с id root
+
+// ЗАМЕНИМ ОДИН ЭЛЕМЕНТ ДРУГИМ
+// elem.replaceWith(tag);  // заменили div#root на p
+
+
+// let list = document.querySelector("ul");
+// let newItem = document.createElement("li"); // <li></li>
+// newItem.innerHTML = "Новый <i>элемент списка</i>";
+// list.append(newItem);
+
+
+// let i = 1;
+// document.querySelector("#func2").addEventListener("click", add);
+// document.querySelector("#func1").addEventListener("click", change);
+// let list2 = document.querySelector("#list2");
+
+// function add(){
+//     let elem = document.createElement("li");
+//     elem.innerHTML = "Water" + i;
+//     list2.append(elem);
+//     i++;
+// }
+
+// function change(){
+//     document.querySelector("#list1").append(list2.lastChild);    // одна нода не может быть в 2 местах. Поэтому, они перемещается
+// }
+
+
+// let div = document.querySelector("#root");
+// div.insertAdjacentHTML("beforebegin", "<p>До выбранного элемента</p>");
+// div.insertAdjacentHTML("afterend", "<p>После выбранного элемента</p>");
+// div.insertAdjacentHTML("afterbegin", "<p>Первым внутри выбранного элемента</p>");
+// div.insertAdjacentHTML("beforeend", "<p>Последним внутри выбранного элемента</p>");
+
+
+// let one = document.querySelector("#p1");
+// // one.remove();   // удаляет выбранный элемент
+// let two = document.querySelector("#p2");
+// two.after(one);
+
+
+// let ul = document.getElementsByTagName("ul")[0];
+// let li = ul.cloneNode(true);    // true - разрешили клонировать дочерние элементы
+// li.querySelector('li').innerHTML = "Начало клонируемых элементов";
+// ul.after(li);
+
+
+// let list = document.querySelector("ul.list");
+// list.insertAdjacentHTML("beforebegin", "<h2>Список </h2><hr>");
+// let list_inner = document.querySelector("h2");
+// list_inner.insertAdjacentText("beforeend", "планет");
+
+// list.insertAdjacentHTML("afterend", "<hr>");
+
+// let hr = document.querySelectorAll("hr")[1];
+// let h4 = document.createElement("h4");  // <h4>Конец списка</h4>
+// h4.innerHTML = "Конец списка";
+// hr.insertAdjacentElement("afterend", h4);
+
+// // бум удалять планеты
+// let idRemove = setInterval(function() {
+//     let li = document.querySelector("ul.list > li");
+//     if(li == null){
+//         clearInterval(idRemove);
+//         // alert("Список удален");
+//         list.insertAdjacentHTML("afterbegin", "<li>Список удален</li>");
+//     } else {
+//         li.remove();
+//     }
+// }, 500);
+
+
+// let spans = document.querySelectorAll(".remove-button");
+
+// for(let i = 0; i < spans.length; i++){
+//     spans[i].addEventListener("click", function(){
+//         this.parentNode.remove();
+//     });
+// }
+
+
+// let div = document.querySelector("div");
+// div.className = 'alert';
+// let activeDiv = document.querySelector(".active");
+// // activeDiv.className = "hidden"; // свойство className заменяет тот класс, что был у элемента изначально. Чтобы использовать несколько классов можно применять свойство classList
+// activeDiv.classList.add("hidden"); // добавляем класс hidden, не удаляя класс active
+// // activeDiv.classList.remove("hidden");
+// activeDiv.classList.toggle("hidden");   // метод toggle добавляет класс hidden, если его нет в свойстве classList. А если он там есть, то наоборот, удаляет
+// activeDiv.classList.replace('active', 'alert');
+
+
+// let frogImg = document.querySelector('#greenFrog');
+
+// console.log(frogImg.id);
+// console.log(frogImg.className);
+// console.log(frogImg.src);
+// console.log(frogImg.alt);
+// console.log(frogImg.title);
+// // console.log(frogImg.data-set);
+
+// frogImg.title = 'Новый текст подсказки';
+// console.log(frogImg.getAttribute('src'));
+// console.log(frogImg.getAttribute('data-set'));
+// frogImg.setAttribute('src', '4.jpg');
+// frogImg.removeAttribute('data-set');
+// console.log(frogImg.hasAttribute('src'));
+
+
+// document.form1.style.background='silver';
+// document.forms[0].style.padding = '16px';
+// document.forms['form1'].style.border = '2px dotted gray';  // самый защищенный способ, т.к. обращаемся по конкретному атрибуту name, а не высчитываем какая форма на странице по счету
+
+
+// document.form1.name1.style.color = 'blue';
+// document.form1['name-1'].style.background = 'aqua';
+// document.forms['form1']['name-1'].style.background = 'aqua';
+
+
+// let txt = document.querySelector('#text1');
+// let but = document.querySelector('button');
+// but.addEventListener('click', content);
+// function content(){
+//     alert(txt.value);   // вводимое содержимое получаем через value из input
+// }
+
+
+let choose = document.querySelector('input[type="button"]');
+choose.addEventListener('click', chooseColor);
+function chooseColor(){
+    document.body.style.background = document.form3.radio2.value;
 }
-
-function getImg(h, m, s){
-    t[0].src = imgTime[parseInt(h / 10)];       
-    t[1].src = imgTime[h % 10];       
-    t[3].src = imgTime[Math.floor(m / 10)];       
-    t[4].src = imgTime[m % 10];       
-    t[6].src = imgTime[parseInt(s / 10)];       
-    t[7].src = imgTime[s % 10];       
-}
-
-
