@@ -1084,8 +1084,248 @@ console.log(typeof(st2)); */
 // }
 
 
-let choose = document.querySelector('input[type="button"]');
-choose.addEventListener('click', chooseColor);
-function chooseColor(){
-    document.body.style.background = document.form3.radio2.value;
+// let choose = document.querySelector('input[type="button"]');
+// choose.addEventListener('click', chooseColor);
+// function chooseColor(){
+//     document.body.style.background = document.form3.radio2.value;
+// }
+
+
+// let input = document.querySelectorAll('input[type="checkbox"]');
+
+// for(let i = 0; i < input.length; i++){
+//     input[i].addEventListener('click', checkAll);
+// }
+
+// let numChecked;
+// function checkAll(){
+//     numChecked = 0;
+//     for(let i = 0; i < input.length; i++){
+//         if(input[i].checked){   // && input[i].type == "checkbox"
+//             numChecked++;
+//         }
+//     }
+//     if(numChecked == 3){
+//         for(let i = 0; i < input.length; i++){
+//             if(!input[i].checked){  // && input[i].type == "checkbox"
+//                 input[i].disabled = true;
+//             }
+//         }
+//     } else {
+//         for(let i = 0; i < input.length; i++){
+//             input[i].disabled = false;
+//         }
+//     }
+//     console.log(numChecked);
+// }
+
+
+// let city = document.querySelector("#city");
+// city.addEventListener('change', setImage);
+// function setImage(){
+//     let cities = city.selectedIndex;
+//     let options = city.options;
+//     let code = options[cities].value;
+//     let div = document.querySelector('#image');
+//     div.innerHTML = "<img src='img/" + code + ".png'>";
+// }
+
+
+// let gas = document.querySelectorAll('.petrol');
+// for(let i = 0; i < gas.length; i++){
+//     gas[i].addEventListener('click', function(){
+//         let gallons = document.querySelector('.gallons').value;
+//         let amount = this.getAttribute('data-get');
+//         let res = gallons * amount;
+//         let sum = document.querySelector('.sum');
+//         sum.innerHTML = res;
+//     });
+// }
+
+
+// Объекты
+
+// let car = new Object();
+// let car1 = {};
+
+// let car = new Object();
+// car["type"] = "BMW";
+// car.color = "white";
+// console.log(car);
+// document.write(car.type + " " + car["color"]);
+
+
+
+// let menu1 = {
+//     "width": 300,
+//     height: 200,
+//     title: "Menu1"
+// };
+// console.log(menu1);
+// document.write(menu1.title + ": " + menu1.width + " x " + menu1.height + "<br>");
+// delete menu.width;
+
+// let menu = {};  // создали переменную и инициализировали ее пустым объектом
+// menu["width"] = 300;
+// menu.height = 200;
+// menu.title = "Menu";
+// console.log(menu);
+// document.write(menu.title + ": " + menu.width + " x " + menu.height + "<br>");
+// delete(menu.width);
+// document.write(menu.title + ": " + menu.width + " x " + menu.height + "<br>");
+
+// menu.age = 25;
+// console.log(menu);
+
+// for(let key in menu){
+//     document.write("<br>Ключ = " + key + ", значение = " + menu[key]);
+// }
+
+// document.write("<br>Имена ключей: " + Object.keys(menu));
+// document.write("<br>Всего свойств: " + Object.keys(menu).length);
+
+// Object.keys(menu).forEach(function(key){
+//     document.write("<br>" + menu[key]);
+// });
+
+
+// let obj = {
+//     name: "Гомер",
+//     colors: {
+//         first: "yellow",
+//         second: "blue"
+//     },
+//     color: [
+//         "black",
+//         "white",
+//         "red",
+//         "blue"
+//     ], 
+//     hello: function(){
+//         document.write("Привет");
+//     }
+// }
+// console.log(obj);
+// document.write(obj.name + " " + obj.colors.second + " " + obj.color[2] + "<br>");
+// obj.hello();    // ключ + скобки = вызов функции, которая является значением этого поля
+
+// let fil = obj.color.filter(function(elem){
+//     return elem.length < 5;
+// });
+
+// let fil1 = obj.color.filter(elem => elem.length < 5);
+// document.write("<br>" + fil1 + "<br>");
+
+
+// let mas = obj.color.map(function(elem, index, all){
+//     return "color: " + elem + ", index: " + index + ", весь массив:" + all + "<br>";
+// });
+
+// let mas = Object.keys(obj.colors).map(function(elem, index, all){
+//     return elem + ": " + obj.colors[elem] + "<br>";
+// });
+// document.write("<br>" + mas + "<br>");
+
+// let mas1 = obj.color.map(elem => elem.toUpperCase());
+// document.write("<br>" + mas1 + "<br>");
+
+
+// let calc = {
+//     num1: 5,
+//     num2: 4,
+//     calc: function(){
+//         // this.res = this.num1 * this.num2;
+//         calc.res = calc.num1 * calc.num2;
+//     }
+// }
+// document.write(calc.num1 + "<br>");
+// calc.calc();
+// document.write(calc.res);
+
+
+let x = 15, y = 10;
+
+// let coords = {
+//     x: x,
+//     y: y,
+//     calc: function(){
+//         document.write(this.x * this.y);
+//     }
+// }
+// coords.calc();
+
+// let coords = {
+//     x, y,
+//     calc(){
+//         document.write(this.x * this.y);
+//     }
+// }
+// coords.calc();
+
+
+/************************* Деструктуризация *************************/  
+
+// let user = {
+//     login: {
+//         firstName: 'Kate',
+//         lastName: 'pavlova'
+//     },
+//     passw: 'qwerty',
+//     role: 'quest'
+// }
+
+// let r = user.role;
+// document.write(r);
+
+// let {login: {firstName: f, lastName: l}, passw, role} = user;
+// let {login: {firstName: f, lastName: l}, ...rest} = user;
+// document.write(f + " " + l + " " + rest.passw + " " + rest.role);
+
+
+/******************* Деструктуризация массива ******************/
+
+// let number = [3, 5, 7];
+// document.write(number[1] + "<br>");
+// let [, b, ] = number;
+// document.write(b);
+
+
+/******************* Функция-конструктор *******************/
+// создание объектов в любых языках идет через классы, а в js через функции
+
+// function Car(name, year){
+//     this.name = name;
+//     this.year = year;
+// }
+
+// Car.prototype.getAge = function(){
+//     return new Date().getFullYear() - this.year;
+// }
+// Car.prototype.color = "black";
+
+// let ford = new Car("Ford", 2019);
+// console.log(ford);
+// console.log(ford.getAge());
+
+// let bmw = new Car("BMW", 2017);
+// console.log(bmw.getAge());
+
+
+function Car(name, year){
+    this.name = name;
+    this.year = year;
+    this.getAge = function(){
+        return new Date().getFullYear() - this.year;
+    }
 }
+
+Car.prototype.color = "black";
+
+let ford = new Car("Ford", 2019);
+console.log(ford);
+console.log(ford.getAge());
+
+let bmw = new Car("BMW", 2017);
+console.log(bmw.getAge());
+
+
