@@ -1298,6 +1298,7 @@ let x = 15, y = 10;
 //     this.year = year;
 // }
 
+/****************************** Раньше чтобы создать метод, надо было оратиться к имени существующей функции-конструктора, указать prototype, придумать и указать название метода. Далее указать, что это функция и т.д. ******************************/
 // Car.prototype.getAge = function(){
 //     return new Date().getFullYear() - this.year;
 // }
@@ -1311,21 +1312,222 @@ let x = 15, y = 10;
 // console.log(bmw.getAge());
 
 
-function Car(name, year){
-    this.name = name;
-    this.year = year;
-    this.getAge = function(){
-        return new Date().getFullYear() - this.year;
-    }
-}
+// function Car(name, year){
+//     this.name = name;
+//     this.year = year;
+//     this.getAge = function(){
+//         return new Date().getFullYear() - this.year;
+//     }
+// }
 
-Car.prototype.color = "black";
+// Car.prototype.color = "black";  
 
-let ford = new Car("Ford", 2019);
-console.log(ford);
-console.log(ford.getAge());
+// let ford = new Car("Ford", 2019);
+// console.log(ford);
+// console.log(ford.getAge());
 
-let bmw = new Car("BMW", 2017);
-console.log(bmw.getAge());
+// let bmw = new Car("BMW", 2017);
+// console.log(bmw.getAge());
 
 
+// let form = document.form1;
+
+// form.addEventListener('submit', event => {
+//     event.preventDefault(); // отменяет поведение формы по-умолчанию
+
+//     // теперь метод get отменен, но нам все равно нужно получить доступ к введенным значениям
+//     let title1 = form.title.value;
+//     let text1 = form.text.value;
+//     let description1 = form.description.value;
+
+//     // console.log(title, text);
+//     saveForm({title2: title1, text2: text1, description2: description1}); // вызываем функцию, а в качестве аргумента создаем объект и ему задаем 2 свойства:
+//     // ключ title2, которому присваиваем значение из переменной title1
+//     // ключ text2, которому присваиваем значение из переменной text1 
+//     // это можно заменить на saveForm({title, text}), если ключ и значение называются одинаково
+// })
+
+// function saveForm(data){ // функция принимает 1 аргумент, это будет наш объект
+//     let {title2: title, text2: text, description2: description} = data;
+//     let formData = {    // создаем объект formData с 3 свойствами
+//         date: new Date().toLocaleDateString(),
+//         // title, text, description
+//         ...data
+//     }
+//     console.log("Form data: ", formData);
+// }
+ 
+
+
+// class User{
+//     constructor(name){
+//         this.name = name;   // name - Это свойства-данные (data properties)
+//     }
+//     // Гет и Сет в JS это не функции. Это свойства-аксессоры
+//     get name(){
+//         return this._name;
+//     }
+//     set name(value){
+//         if(value.length < 6){
+//             alert("Имя слишком короткое");
+//             return;
+//         }
+//         this._name = value; // с подчеркиванием чтобы это было незарезервированное имя, иначе ошибка
+//     }
+//     sayHi(){
+//         document.write("Hello, " + this.name + "!");
+//     }
+// }
+
+// let user = new User("Иван");
+// user.name = "Максимильян";
+// console.log(user.name);
+// user.sayHi();
+
+// user.sayHi();
+// alert(typeof(User));    // покажет, что наш "класс" User - Это функция
+
+
+// class Animal{
+//     constructor(name){
+//         this.speed = 0;
+//         this.name = name;
+//     }
+//     run(speed){
+//         this.speed = speed;
+//         document.write(`${this.name} бежит с скоростью ${this.speed} км/ч.<br>`);
+//     }
+//     stop(){
+//         this.speed = 0;
+//         document.write(`${this.name} стоит.<br>`);
+//     }
+// }
+
+// class Rabbit extends Animal{
+//     constructor(name, earLength){
+//         super(name);
+//         this.earLength = earLength;
+//     }
+//     hide(){
+//         document.write(`${this.name} прячется!<br>`);
+//     }
+//     stop(){
+//         super.stop();
+//         this.hide();
+//         console.log("Rabbit");
+//     }
+// }
+
+// let animal = new Animal("Мой питомец");
+// animal.run(80);
+// animal.stop();
+
+// let rabbit = new Rabbit("Белый кролик", 10);
+// rabbit.run(5);
+// rabbit.hide();
+// rabbit.stop();
+// document.write(rabbit.earLength);
+
+
+// class Header{
+//     constructor(img, h1, h2){
+//         this.src = img;
+//         this.h1 = h1;
+//         this.h2 = h2;
+//         this.out = "";
+//     }
+//     render(id){
+//         this.out = `
+//             <img src="${this.src}" alt="logo">
+//             <h1>${this.h1}</h1>
+//             <h1>${this.h2}</h1>
+//         `;
+//         document.querySelector(`#${id}`).innerHTML = this.out;
+//     }
+// }
+
+// class HeaderExt extends Header{
+//     constructor(img, h1, h2, tel){
+//         super(img, h1, h2);
+//         this.tel = tel;
+//     }
+//     get tel(){
+//         return this._tel;
+//     }
+//     set tel(t){
+//         let reg = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+//         if(reg.test(t)){
+//             this._tel = t;
+//         } 
+//         else {
+//             alert("Некорректный номер телефона");
+//             return;
+//         }
+//     }
+//     render(id){
+//         super.render(id);
+//         this.out += `
+//             <h2>${this.tel}</h2>
+//         `;
+//         document.querySelector(`#${id}`).innerHTML = this.out;
+//     }
+// }
+
+// let img = "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/233_Node_Js_logo-64.png";
+// let header = new Header(img, "Заголовок", "Описание");
+// header.render("header");
+
+// let img2 = "https://cdn4.iconfinder.com/data/icons/logos-and-brands-1/512/187_Js_logo_logos-64.png";
+// let header2 = new Header(img2, "Второй заголовок", "Другое описание");
+// header2.render("header2");
+
+// let img3 = "https://cdn3.iconfinder.com/data/icons/file-extension-vol-1/48/Js_file_internet_extension-64.png";
+// let header3 = new HeaderExt(img3, "Класс-наследник", "Описание наследника", "+7 901 555-55-55");
+// header3.tel = "Hello";
+// // header3.tel = "+7 333 987-54-53";
+// header3.render("header-ext");
+
+
+
+/******************************* JSON *******************************/
+// JSON - объект всегда нужно преобразовывать в подобный тип данных независимо от ЯП. В Java это коллекция Map.
+
+
+
+// let info = '{"first_name":"Ivan","age":36,"mother":{"name":"Olga","age":58},"children":["Kate","Igor","Misha"],"married":true,"dog":null}';
+
+// console.log(info);
+
+// let person = JSON.parse(info);  // JSON => JS
+
+// console.log(person);
+
+// person.first_name = "Петр";
+// delete person.age;  // удаляем свойство
+// person.work = "programmer";
+
+// for(let i in person){
+//     document.write(i + ": " + person[i] + "<br>");
+// }
+
+
+// Преобразуем наш объект в JSON-объект
+// let personString = JSON.stringify(person);
+
+// console.log(personString);
+
+
+
+fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())    // JSON => JS
+      .then(json => console.log(json)); // json - это объект java script
+
+
+
+
+
+
+
+
+
+      
